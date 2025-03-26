@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Childhood</title>
+    <style>
+        body
+        {
+            font-family: Arial, sans-serif;
+            color: black;
+            padding: 15px;
+            margin: 10px;
+            line-height: 1.6;
+            font-size: large;
+            font-weight: 500;
+            background-color: rgba(94, 93, 93, 0.75);
+        }
+    
+        h1
+        {
+            text-align: center;
+        }
+    
+        a
+        {
+            display: block;
+            text-align: center;
+            color: #3310be;
+            text-decoration: none;
+            margin: 20px 0;
+        }
+            
+        a:hover
+        {
+            text-decoration: underline;
+        }
+
+        .container
+        {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .rotating-image
+        {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            animation: rotate 5s linear infinite;
+        }
+        
+        @keyframes rotate 
+        {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .rotating-image2
+        {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+
+        #topBtn
+        {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: opacity 0.3s;
+        }
+
+        #topBtn:hover
+        {
+            background-color: #5a066ede;
+        }
+    </style>
+    <script lang="javascript">
+        document.addEventListener("DOMContentLoaded", function()
+        {
+            let image = document.querySelector(".rotating-image2");
+            let angle = 0;
+            
+            function rotateImage()
+            {
+                angle += 3;
+                image.style.transform = `rotate(${angle}deg)`;
+                requestAnimationFrame(rotateImage);
+            }
+            
+            rotateImage();
+        });
+
+        let topBtn = document.getElementById("topBtn");
+
+        window.onscroll = function ()
+        {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                topBtn.style.display = "block";
+            } else {
+                topBtn.style.display = "none";
+            }
+        };
+
+        function scrollToTop()
+        {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    </script>
+</head>
+<body>
+    <img src="https://i.pinimg.com/474x/8d/64/40/8d6440327a2996b8661f7c7b08c9b88f.jpg" alt="Rotating Image using css" class="rotating-image">
+    <img src="https://i.pinimg.com/474x/8d/64/40/8d6440327a2996b8661f7c7b08c9b88f.jpg" alt="Rotating Image using css" class="rotating-image2">
+
+    <div class="container">
+        <h1>My Childhood</h1>
+        
+        <section>
+            <h2>Memorable Childhood Experiences</h2>
+            <p>During class 6 in primary, I remember surprisingly reuniting with an old neighbour from 4 years ago. We were at a school fun day 
+                and I had caught her keenly staring at me with interest. I chatted her up and she jogged my memory about us being old neighbours. 
+                It was truly a fun moment as I always believed moving out was always akin to parting goodbye for good. That day how wrong I was 
+                proven.
+            </p>
+        </section>
+
+        <section>
+            <h2>Family Interactions</h2>
+            <p>My family is composed of my father,mpther, older and younger sister. Msst of us have schooled far from home during our highschool 
+                or university eras. For example, when we lived in Rongai, I schooled in Siakago, Embu for secondary school. My older sister studied her university 
+                course in Migori.
+            </p>
+            <p>It was pretty funny how combined, we've practically visited most of Kenya.</p>
+        </section>
+
+        <a href="Journey3">Next Page</a>
+        <a href="Journey">Home Page</a>
+    </div>
+
+    <button id="topBtn" onclick="scrollToTop()">▲</button>
+</body>
+</html>

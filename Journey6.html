@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <style>
+        body
+        {
+            font-family: Arial, sans-serif;
+            color: black;
+            padding: 15px;
+            margin: 10px;
+            line-height: 1.6;
+            font-size: large;
+            font-weight: 500;
+            background-color: rgba(94, 93, 93, 0.75);
+        }
+
+        .container
+        {
+            max-width: 800px; 
+            margin: auto; 
+            background: white; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1
+        {
+            text-align: center;
+        }
+
+        h1, h2
+        {
+            color: #333;
+        }
+        
+        li
+        {
+            margin-bottom: 10px;
+            font-style: italic;
+            color: crimson;
+        }
+
+        .normal_anchor
+        {
+            display: block;
+            text-align: center;
+            color: #3310be;
+            text-decoration: none;
+            margin: 20px 0;
+        }
+            
+        a:hover
+        {
+            text-decoration: underline;
+        }
+
+        .inline_anchor
+        {
+            color: #3310be;
+            text-decoration: none;
+        }
+
+        .rotating-image
+        {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            animation: rotate 5s linear infinite;
+        }
+        
+        @keyframes rotate 
+        {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .rotating-image2
+        {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+
+        img
+        {
+            padding-right: 50px;
+        }
+
+        #topBtn
+        {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: opacity 0.3s;
+        }
+
+        #topBtn:hover
+        {
+            background-color: #5a066ede;
+        }
+    </style>
+    <script lang="javascript">
+        document.addEventListener("DOMContentLoaded", function()
+        {
+            let image = document.querySelector(".rotating-image2");
+            let angle = 0;
+            
+            function rotateImage()
+            {
+                angle += 3;
+                image.style.transform = `rotate(${angle}deg)`;
+                requestAnimationFrame(rotateImage);
+            }
+            
+            rotateImage();
+        });
+
+        function popup()
+        {
+            alert("Page 6 of 6");
+        }
+
+        let topBtn = document.getElementById("topBtn");
+
+        window.onscroll = function ()
+        {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                topBtn.style.display = "block";
+            } else {
+                topBtn.style.display = "none";
+            }
+        };
+
+        function scrollToTop()
+        {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    </script>
+</head>
+<body>
+    <img src="https://i.pinimg.com/474x/8d/64/40/8d6440327a2996b8661f7c7b08c9b88f.jpg" alt="Rotating Image using css" class="rotating-image">
+    <img src="https://i.pinimg.com/474x/8d/64/40/8d6440327a2996b8661f7c7b08c9b88f.jpg" alt="Rotating Image using css" class="rotating-image2">
+
+    <div class="container">
+        <h1>Contact Me</h1>
+
+        <section>
+            <h2>Email</h2>
+            <p>husseinabdulmalik35@gmail.com</p>
+            <a class="inline_anchor" href="mailto:husseinabdulmalik35@gmail.com" target="_blank">Email Me</a>
+        </section>
+
+        <section>
+            <h2>Social Media</h2>
+            <ul></ul>
+        </section>
+
+        <section>
+            <h2>Other Contact Methods</h2>
+            <p>Work with me through Github, username <b>Shabbaz-Hussein</b>. Repositories at this search
+                <b><a class="inline_anchor" href="https://github.com/search?q=Shabbaz-Hussein&type=users" target="_blank">https://github.com/search?q=Shabbaz-Hussein&type=users</a></b>
+            </p>
+            <p>Game with me at;
+                <ul>
+                    <li>Discord username - bloody_paisen86</li>
+                    <li>Discord server - bloody_Beatdown</li>
+                    <li>PlayStation account - bloody_paisen86</li>
+                </ul>
+            </p>
+        </section>
+
+        <a class="normal_anchor" href="Journey5">Prev Page</a>
+        <a class="normal_anchor" href="Journey">Home Page</a>
+
+        <p>Thanks for visiting. Goodbye.</p>
+        <img
+            height="30%" width="30%"
+            src="https://i.pinimg.com/474x/8d/64/40/8d6440327a2996b8661f7c7b08c9b88f.jpg" 
+            alt="Lofi boy studying">
+        <img
+            height="30%" width="30%"
+            src="https://i.pinimg.com/originals/3e/0d/3b/3e0d3b2c63f871f733ba11766fe17339.gif" 
+            alt="Peace out meme">
+    </div>
+
+    <button id="topBtn" onclick="scrollToTop()">▲</button>
+</body>
+</html>

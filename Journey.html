@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+        {
+            font-family: Arial, sans-serif;
+            color: black;
+            padding: 15px;
+            margin: 10px;
+            line-height: 1.6;
+            font-size: large;
+            font-weight: 500;
+            background-color: rgba(94, 93, 93, 0.75);
+        }
+    
+        h1
+        {
+            text-align: center;
+        }
+    
+        a
+        {
+            display: block;
+            text-align: center;
+            color: #3310be;
+            text-decoration: none;
+            margin: 20px 0;
+        }
+            
+        a:hover
+        {
+            text-decoration: underline;
+        }
+
+        #container
+        {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .box 
+        {
+            width: 450px;
+            text-align: center;
+            margin: auto;
+            background: rgb(223, 142, 204);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .rotating-image
+        {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            animation: rotate 5s linear infinite;
+        }
+        
+        @keyframes rotate 
+        {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .rotating-image2
+        {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+
+        #topBtn
+        {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: opacity 0.3s;
+        }
+
+        #topBtn:hover
+        {
+            background-color: #5a066ede;
+        }
+    </style>
+    <script lang="javascript">
+        document.addEventListener("DOMContentLoaded", function()
+        {
+            let image = document.querySelector(".rotating-image2");
+            let angle = 0;
+            
+            function rotateImage()
+            {
+                angle += 3;
+                image.style.transform = `rotate(${angle}deg)`;
+                requestAnimationFrame(rotateImage);
+            }
+            
+            rotateImage();
+        });
+
+        let topBtn = document.getElementById("topBtn");
+
+        window.onscroll = function ()
+        {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                topBtn.style.display = "block";
+            } else {
+                topBtn.style.display = "none";
+            }
+        };
+
+        function scrollToTop()
+        {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    </script>
+</head>
+<body>
+    <img src="https://i.pinimg.com/474x/8d/64/40/8d6440327a2996b8661f7c7b08c9b88f.jpg" alt="Rotating Image using css" class="rotating-image">
+    <img src="https://i.pinimg.com/474x/8d/64/40/8d6440327a2996b8661f7c7b08c9b88f.jpg" alt="Rotating Image using css" class="rotating-image2">
+
+    <div id="container">
+        <h1><u>About Me</u></h1>
+        <section>
+            <p>Hello. I'm Abdulmalik Shabbaz Hussein, a passionate Software Engineering student at Zetech University.</p>
+        
+            <p>My interests revolve around web development, anime and gaming. Whether it's coding a sleek website or playing games both 
+                casually and competitively, I enjoy every step of the process. I'm also an avid learner, always looking to expand my skills 
+                where possible.
+            </p>
+        
+            <p>My goal is to become a skilled software engineer, creating impactful and user-friendly solutions. I aspire to grow in the tech 
+                environmentand adapt to the emerging trends still while keeping up with my anime and gaming hobbies
+            </p>
+        </section>
+        
+        <a href="Journey2">Next Page</a>
+
+        <p>Short video to smile and enjoy yourself: <br>
+            Shibayan Records - Tiny Little Adiantum (deadman 死人 Remix) [Omae Wa Mou]
+        </p>
+        <div class="box">
+            <iframe 
+                width="75%" height="60%" 
+                src="https://www.youtube.com/embed/Ejv0Gk-mGko" 
+                alt="Short music video for entertainment"
+                title="Shibayan Records - Tiny Little Adiantum (deadman 死人 Remix) [Omae Wa Mou]" 
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <button id="topBtn" onclick="scrollToTop()">▲</button>
+</body>
+</html>
